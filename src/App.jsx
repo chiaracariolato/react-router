@@ -8,6 +8,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 import HomePage from "./pages/HomePage";
 import ChiSiamo from "./pages/ChiSiamo";
 import Prodotti from "./pages/Prodotti";
+import DettaglioProdotto from "./pages/DettaglioProdotto";
 
 export default function App() {
   const [prodotti, setProdotti] = useState([]);
@@ -30,7 +31,10 @@ export default function App() {
           <Routes>
             <Route element={<DefaultLayout />}>
               <Route index element={<HomePage />} />
-              <Route path="/prodotti" element={<Prodotti prodotti={prodotti} />} />
+              <Route path="/prodotti" >
+                <Route index element={<Prodotti prodotti={prodotti} />} />
+                <Route path=":id" element={<DettaglioProdotto />} />
+              </Route>
               <Route path="/chisiamo" element={<ChiSiamo />} />
             </Route>
           </Routes>

@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import ChiSiamo from "./pages/ChiSiamo";
 import Prodotti from "./pages/Prodotti";
 import DettaglioProdotto from "./pages/DettaglioProdotto";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   const [prodotti, setProdotti] = useState([]);
@@ -36,6 +37,7 @@ export default function App() {
                 <Route path=":id" element={<DettaglioProdotto />} />
               </Route>
               <Route path="/chisiamo" element={<ChiSiamo />} />
+              <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
         </div>
